@@ -36,9 +36,83 @@
 	}
 	
 	
+	
+	// prototype 객체: 함수를 포함한 모든 객체가 가지고 있는 internal slot
+	// 객체 입장에서 자신의 부모 역할을 하는 프로토타입 객체를 가리키며 함수 객체의 경우 Function.prototype를 가리킨다.
+	// 오직 자바스크립트에만 있는 기능임
+	
+	function student2(name, kor, eng, mat) {
+		this.name = name;
+		this.kor = kor;
+		this.eng = eng;
+		this.mat = mat;
+	}
+	
+	
+	
+	//student2.prototype.getSum = function(){}
+	
+	student.prototype = {
+			getSum : function(){
+				return this.kor + this.eng + this.mat;
+			},
+			getAverage: function(){
+				return this.getSum() / 3;
+			},
+			toString: function() {
+				return this.name + "\t" + this.getSum() + "\t" + this.getAverage();
+			}
+	}
 
+	let students2 = [];
+	
+	students2.push(new student("홍길동", 9,6,6));
+	students2.push(new student("강길동", 11,334,5));
 
-
+	for (let i in students2) {
+		document.write(student[i].toString() + "<br>");
+	}
+	
+	
+	// 과제 > Rectangle 생성자 함수를 만들고 사각형 넓이를 구해보자.
+	// 함수를 prototype 에 넣어서 getArea()를 만들어 보자.
+	// 생성자 함수를 통해 객체를 생성하고 해당 함수를 호출해 사용해보자.
+	
+	/*
+	function Rectangle(width, height) {
+		this.width = width;
+		this.height = height;
+	}
+	Rectangle.prototype.getArea = function() {
+		return this.width * this.height;
+	}
+	
+	let rectangle = new Rectangle(5,7);
+	console.log("넓이는" + rectangle.getArea());
+	*/
+	
+	
+	
+	// 상속: 클래스 기반 ES6
+	class Rectangle{
+		constructor(w, h){
+			this.width = w;
+			thih.height = h;
+		}
+		getArea = function(){
+			return this.width* this.height;
+		}
+	}
+	
+	class Square extends Rectangle{
+		constructor(length)
+		{
+			super(length, length);
+		}
+	}
+	
+	let square = new Square(10);
+	console.log("넓이: " + square.getArea());
 
 </script>
 </head>
