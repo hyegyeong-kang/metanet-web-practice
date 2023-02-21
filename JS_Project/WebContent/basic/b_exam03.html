@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// ECMA Script 6
+	// var => let, const
+	
+	//var variableA = 100;
+	//let variableB = 200;
+	//const variableC = 300; //재할당 불가
+	
+	//variableC = 400; // error
+
+	
+	// if, for => O, function X
+	{
+		// scopeA
+		var variableA = 100;
+		let variableB = 200;
+	}
+	
+	{
+		// scopeB
+		console.log(varibleA);
+		
+		
+	}
+	
+	// 여러 큰 스코프에서 공유하기 위한 최상위 변수에는 var을 사용
+	// 작은 스코프에서 로컬변수에는 let 사용
+	// 기본적으로 const 를 사용하고 값을 재할당해야하는 경우 let 사용
+	
+	for(let i = 0; i < 10; i++) {
+		let l = 'for문 안에 변수';
+	}
+	
+	console.log(l);
+	
+	let x = 'global';
+	
+	if(x == 'global') {
+		let x = 'block-scope';
+		console.log(x);
+	}
+	
+	console.log(x);
+	
+	
+	var y = 'global';
+	if(y == 'global') {
+		var y = 'block-scope';
+		console.log(y);
+	}
+	// var 이면 같은 메모리를 참조해 값이 바뀌어지는 위험한 상황임
+	console.log(y);
+	
+	
+	
+	// <문제1>
+	var greeting = 'hello';
+	greeting = 'farewell';
+	
+	for(let i = 0; i <= 2; i++) {
+		var greeting = 'GM';
+	}
+	
+	console.log(greeting) // GM
+	
+	
+	// <문제2>
+	let value = 1;
+	
+	if(true) {
+		let value = 2;
+		console.log(value); //2
+	}
+	
+	value = 3;
+	
+	
+	// <문제3>
+	let x = 100;
+	
+	if(x > 50) {
+		let x = 10;
+	}
+	
+	console.log(x);
+	
+	
+	var myVar = "전역변수";
+	
+	function myFun() {
+		var myVar = "지역변수";
+		console.log(myVar); // 지역변수 
+		console.log(this.myVar); 
+		//일반 함수안의 this 는 윈도우 객체이다.
+		
+	}
+	
+	myFun();
+	console.log(myVar); // 전역변수 -> 함수는 해당 안되니까
+	
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
