@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="cross.js"></script>
+<script type="text/javascript">
+	function doProcess() {
+		let result = document.querySelector("#result");
+		result.innerHTML = "<span>이벤트 결과1</span>"
+	}
+	
+	function doProcess2() {
+		alert("이벤트 결과");
+	}
+	
+	// 윈도우가 읽고 난 후에 하겠다 , 그게 아니면 body 태그 밑으로 들어가면 된다.
+	window.onload = function () {
+		let btn = document.querySelector("#btn");
+		
+		/* 1
+		btn.onclick = doProcess2; // 함수의 주소값을 넣어줘야만 이벤트가 일어났을 때 함수를 호출할 수 있는 것(함수등록)
+		btn.onclick = doProcess2(); // 함수를 호출하는 것 - 이벤트와 관계 없는 것
+		*/
+		
+		
+		/*
+		// 2. 이벤트 리스너 방식
+		btn.addEventListener('click', doProcess2, false);
+		btn.addEventListener('click', doProcess, false);
+		*/
+		
+		cross.Event.addListener(btn, 'click', doProcess2, false);
+		cross.Event.addListener(btn, 'click', doProcess, false);
+	}
+	
+	type
+</script>
+</head>
+<body>
+	<input type="button" value="버튼1" onclick="doProcess()">&nbsp;&nbsp;
+	<input type="button" id="btn" value="버튼2">
+	<div id = "result"></div>
+</body>
+</html>
