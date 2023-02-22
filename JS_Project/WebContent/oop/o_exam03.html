@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+<script type="text/javascript">
+
+/*
+	let a = 4;
+	let b = 4;
+	console.log(a == b); // true
+	// 값 비교
+	
+	
+	let c = {a: 1};
+	let d = {a: 1};
+	console.log(c == d);  // false
+	// 주소값을 비교 
+	
+	let e = d;
+	console.log(d == e); // true 주소값이 같으니까
+	console.log(c == e); // false 주소값이 다르니까
+	
+	d.a = 2;
+	console.log(e.a); // 2
+	console.log(c.a); // 1
+	
+*/
+
+
+/*
+	let a = {q: 1};
+	let b = a;
+	console.log(a === b); // true 값은 주소값을 가지고 있으니까 
+	
+	b.q = 3;
+	console.log(b); //3 
+	console.log(a); //3
+	
+	let c = {...a};
+	console.log(c);
+	console.log(a === c); // false a와 c는 서로 다른 주소값을 가지고 있기 때문
+	
+	a.q = 4;
+	console.log(a); //4
+	console.log(c); //3
+	
+*/
+
+
+	let a = {a: 1};
+	let b = {...a};
+	console.log(b);
+	console.log(a.a === b.a); // true
+	console.log(JSON.stringify(a));
+	console.log(JSON.stringify(b));
+	console.log(JSON.stringify(a) === JSON.stringify(b));
+	// 객체 내용 전체 비교할 수 있음
+	
+	
+	
+	let c = {a: 1, b: 2};
+	led d = {...c};
+	console.log(JSON.stringify(c) === JSON.stringify(d)); 
+	// true
+	
+	let e = {b: 2, a: 1};
+	console.log(JSON.stringify(c) === JSON.stringify(e)); 
+	// false 
+	console.log(_.isEqual(c, e));
+	
+	
+	
+	// 1. 주소값을 복사했으면 같이 영향 받는다.
+	// 2. 내용은 같지만 독립적인 주소를 얻기 위해 ... 를 사용한다 
+	// 3. 안에 있는 객체 내용을 비교하고 싶다면 json.stringify
+	// 4. 내용물 순서가 다를 경우 false 를 반환하기 때문에 라이브러리 isEquals 를 사용해 비교할 수 있다.
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
