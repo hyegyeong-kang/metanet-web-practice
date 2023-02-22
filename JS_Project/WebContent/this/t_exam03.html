@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//이벤트 핸들러 함수 안에서의 this 는 이벤트 대상(소스) 이다.
+	var data = 10; // 윈도우객체꺼
+	
+	window.onload = function(){
+		var btn = document.getElementById("btn");
+		btn.onclick = function(){
+			this.data = 20; // btn 에 있는 데이터를 의미하는구나
+			data = 30;
+			
+			console.log("1. data: " + data); //30
+			console.log("2. this.data: " + this.data); //20
+			console.log("3. window.data: " + window.data); //30
+		}
+	}
+
+
+
+</script>
+</head>
+<body>
+	<button id = "btn">버튼</button>
+</body>
+</html>

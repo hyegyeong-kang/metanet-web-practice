@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	let data = 10; // window 객체가 아님! let 이기 때문
+	
+	function func(){ // 일반 함수 
+		this.data = 20; // window 객체
+		data = 30;
+		
+		console.log("1. data: " + data); //30
+		console.log("2. this.data: " + this.data); //20
+		console.log("3. window.data: " + window.data); //20 
+	}
+	
+	func();
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
